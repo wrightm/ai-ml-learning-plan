@@ -1,0 +1,78 @@
+name: Weekly Issue
+
+on:
+  schedule:
+    - cron: "0 16 * * 1"  # Mondays 16:00 UTC (~9am PT depending on DST)
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  open-weekly-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create weekly issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const now = new Date();
+            const y = now.getUTCFullYear();
+            const m = (now.getUTCMonth() + 1).toString().padStart(2, '0');
+            const d = now.getUTCDate().toString().padStart(2, '0');
+            const title = `Weekly Check-in – ${y}-${m}-${d}`;
+
+            // Avoid dupes
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+              labels: "weekly"
+            });
+            const exists = issues.some(i => i.title.includes("Weekly Check-in"));
+            if (exists) {
+              core.info("Weekly issue already exists.");
+              return;
+            }
+
+            const body = `## 🎯 Goals for this week
+- [ ] Main learning goal(s)
+- [ ] Hands-on deliverable by Friday
+- [ ] Reading/papers/videos
+
+## 🧠 Notes / Insights
+- …
+
+## 🧪 Experiments
+- …
+
+## 🚧 Blockers / Risks
+- …
+
+## ✅ Done this week
+- …
+
+## 🔜 Next week (rough plan)
+- …`;
+
+            const issue = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body,
+              labels: ["weekly", "progress"]
+            });
+
+            core.info(`Created issue #${issue.data.number}`);
+
+      # Optional: send email via SendGrid (requires repo secrets)
+      # - name: Send email notification
+      #   if: ${{ secrets.SENDGRID_API_KEY && secrets.TO_EMAIL }}
+      #   uses: peter-evans/sendgrid-action@v1
+      #   with:
+      #     sendgrid-api-key: ${{ secrets.SENDGRID_API_KEY }}
+      #     to: ${{ secrets.TO_EMAIL }}
+      #     from: "noreply@github.actions"
+      #     subject: "New Weekly Check-in Created"
+      #     body: "A new weekly check-in issue has been created."

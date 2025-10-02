@@ -1,0 +1,37 @@
+name: Update Progress Badge
+
+on:
+  push:
+  schedule:
+    - cron: "0 10 * * *"  # Daily at 10:00 UTC (~2am PT)
+
+permissions:
+  contents: write
+
+jobs:
+  update-badge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Update badge
+        run: |
+          python scripts/update_badge.py
+
+      - name: Commit changes
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add README.md
+            git commit -m "chore(badge): auto-update progress badge"
+            git push
+          else
+            echo "No changes to commit."
+          fi
