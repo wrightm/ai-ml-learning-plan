@@ -11,28 +11,63 @@ A ruthless, focused plan for a senior staff engineer (math/physics background, a
 ## Repo layout
 ```
 .
-├─ README.md
-├─ journal/                     # Your weekly notes live here
-├─ projects/                    # Capstones & mini-capstones
-├─ scripts/
-│  └─ update_badge.py           # Auto-updates the progress badge from README checkboxes
-└─ .github/
-   ├─ workflows/
-   │  ├─ update-progress.yml    # Updates badge daily and on pushes
-   │  └─ weekly-issue.yml       # Opens a weekly check‑in issue every Monday
-   └─ ISSUE_TEMPLATE/
-      └─ weekly_progress.md     # Template for weekly issues
+├─ README.md                    # This file - your learning plan
+├─ SETUP.md                     # Detailed setup guide
+├─ QUICK_REFERENCE.md           # Command cheat sheet
+├─ requirements.txt             # Python dependencies
+├─ Makefile                     # Convenient commands
+├─ journal/weeks/               # Your weekly work goes here
+│  └─ WEEK_XX/
+│     ├─ README.md              # Week notes
+│     ├─ *.ipynb                # Jupyter notebooks
+│     └─ *.py                   # Python utilities
+├─ courses/                     # Course references
+├─ certs/                       # Certification guides
+└─ scripts/
+   └─ update_badge.py           # Updates progress badge
 ```
-> After your **first push**, GitHub Actions will run and set your progress badge. Edit the checkboxes below as you complete weeks.
+
+> Track your progress by checking boxes below as you complete each week.
 
 ---
 
 ## Getting started
-1. **Create a new GitHub repo** and upload all files from this folder.
-2. Open the **Actions** tab and enable workflows (if prompted).
-3. (Optional) Adjust the schedule time in `.github/workflows/weekly-issue.yml` to your preference.
-4. Each Monday, a **Weekly Check‑in** issue is created. Use it to plan and reflect.
-5. Mark each completed week below by changing `- [ ]` → `- [x]`. The badge updates automatically.
+
+### 1. Python Environment Setup
+This project requires **Python 3.11+**. Quick start:
+
+```bash
+# Create and activate virtual environment
+python3.11 -m venv .venv
+source .venv/bin/activate  # macOS/Linux
+# .venv\Scripts\activate   # Windows
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Verify setup
+python verify_setup.py
+```
+
+> See [SETUP.md](SETUP.md) for detailed installation instructions and troubleshooting.
+
+### 2. Start Learning
+```bash
+# Launch Jupyter Lab
+jupyter lab
+# OR use Makefile
+make lab
+```
+
+Your browser will open. Navigate to `journal/weeks/WEEK_01/W01_PCA_via_SVD.ipynb` to start!
+
+### 3. Weekly Workflow
+- **Mark progress**: Check boxes below as you complete weeks (`- [ ]` → `- [x]`)
+- **Take notes**: Document learnings in `journal/weeks/WEEK_XX/README.md`
+- **Code daily**: Aim for ~60 minutes, Monday–Friday
+- **Commit work**: Push to GitHub to track your progress
+
+> **Optional**: Set up [GitHub Actions](.github/) to auto-update the progress badge above.
 
 ---
 
@@ -45,12 +80,12 @@ A ruthless, focused plan for a senior staff engineer (math/physics background, a
 - **Fri:** mini-deliverable (writeup, PR, or result) ~60m  
 
 **Core Stack**
-- Python 3.11+, PyTorch, numpy/pandas, scikit‑learn, matplotlib, Jupyter
-- Lightning/Fabric (optional), Weights & Biases (tracking), Poetry/uv (env), pytest, ruff/black
-- FastAPI, Docker, SQLite/Postgres
-- Vector Search: FAISS/HNSW; Pinecone/Weaviate/Chroma (optional)
-- Recsys libs later: implicit, LightFM, Recbole/Merlin; banditpylib
-- Agent libs: LangGraph, pydantic/instructor, vLLM/Ollama (optional), LLM client(s)
+- **Foundation**: Python 3.11+, NumPy, Pandas, Matplotlib, scikit-learn, Jupyter
+- **Deep Learning**: PyTorch, Lightning
+- **Experimentation**: Weights & Biases
+- **Recommender Systems**: implicit, LightFM, FAISS
+- **LLM & Agents**: LangChain, OpenAI API, instructor
+- **Later phases**: FastAPI (serving), SQLAlchemy (data)
 
 ---
 
@@ -118,23 +153,33 @@ A ruthless, focused plan for a senior staff engineer (math/physics background, a
 
 ---
 
-## Journal
-Create weekly files like `journal/Week_01.md`:
+## Journal Structure
+Each week, work in `journal/weeks/WEEK_XX/`:
 ```md
-# Week 01 — Vectors & Matrices
-**Goals:** PCA via SVD; refresh norms/projections  
-**Notes:** …  
-**Code/Experiments:** links  
-**Results:** screenshot/metrics  
-**Next:** …
+WEEK_XX/
+├── README.md           # Week notes and learnings
+├── *.ipynb             # Jupyter notebooks with implementations
+├── *.py                # Reusable Python utilities
+└── reading_list.md     # Papers and resources
 ```
 
-## Automation & Badges
-- The **progress badge** updates automatically by counting completed `- [x]` checkboxes in the Week lists above. It runs **daily** and on **every push**.
-- A **Weekly Check‑in** issue is created every **Monday** (UTC) with planning prompts. Adjust the schedule in the workflow if you prefer a different time.
+**Example Week Notes** (`README.md`):
+```md
+# Week 01 — Vectors & Matrices
+**Goals:** PCA via SVD; refresh linear algebra fundamentals  
+**What I Learned:** SVD decomposition, explained variance, whitening  
+**Code:** W01_PCA_via_SVD.ipynb  
+**Key Insights:** PCA is just eigendecomposition of covariance...  
+**Next Week:** Probability & stats refresher
+```
 
-## Optional: Email notifications
-GitHub won’t email arbitrary addresses from Actions without a provider. To get weekly emails to yourself, add a mail action (e.g., SendGrid) and set secrets `SENDGRID_API_KEY` and `TO_EMAIL`. See comments inside `weekly-issue.yml`.
+## Tips for Success
+- **Consistency > intensity**: 1 hour/day beats 7 hours on Sunday
+- **Code everything from scratch**: Understanding > efficiency when learning
+- **Visualize concepts**: Plots build intuition
+- **Document as you go**: Future you will be grateful
+- **Review previous weeks**: Spaced repetition aids retention
+- **Don't skip fundamentals**: Strong foundations enable advanced work
 
 ---
 
