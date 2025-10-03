@@ -18,7 +18,7 @@ Click to watch Arnold's motivation on the power of one hour a day:
 
 ## The Plan
 
-A ruthless, focused plan for a senior staff engineer (math/physics background, a bit rusty) to become **expert in Agentic AI** and **Recommendation Systems** in one year with ~**1 hour/day**.
+A ruthless, focused plan for a Software Engineer (math/physics background, a very rusty) to become **expert in Agentic AI** and **Recommendation Systems** in one year with ~**1 hour/day**.
 
 > **Cadence**: Mon–Fri → ~60m/day (theory, paper skim, coding, experiment, weekly deliverable). Use `journal/weeks/WEEK_XX/` to log progress.
 
