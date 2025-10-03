@@ -4,6 +4,20 @@
 ![Progress](https://img.shields.io/badge/Progress-0%25-brightgreen)
 <!--PROGRESS_BADGE_END-->
 
+## 💪 One Hour a Day - Arnold Schwarzenegger
+
+> *"The worst thing I can be is the same as everybody else. I hate that."* - Arnold Schwarzenegger
+
+Click to watch Arnold's motivation on the power of one hour a day:
+
+[![Arnold Schwarzenegger - One Hour a Day](https://img.youtube.com/vi/mPo-YY5kMOA/maxresdefault.jpg)](https://www.youtube.com/watch?v=mPo-YY5kMOA "One Hour a Day - Arnold Schwarzenegger")
+
+**The message**: One hour a day, dedicated and focused, is all it takes to transform yourself. No excuses.
+
+---
+
+## The Plan
+
 A ruthless, focused plan for a senior staff engineer (math/physics background, a bit rusty) to become **expert in Agentic AI** and **Recommendation Systems** in one year with ~**1 hour/day**.
 
 > **Cadence**: Mon–Fri → ~60m/day (theory, paper skim, coding, experiment, weekly deliverable). Use `journal/weeks/WEEK_XX/` to log progress.
