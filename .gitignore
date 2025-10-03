@@ -33,12 +33,10 @@ wandb/
 mlruns/
 .mlflow/
 
-# Testing & Coverage
-.pytest_cache/
-.coverage
-htmlcov/
-.tox/
-.hypothesis/
+# Build artifacts
+build/
+dist/
+*.egg-info/
 
 # IDE
 .vscode/

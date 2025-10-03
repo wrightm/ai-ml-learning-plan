@@ -79,7 +79,7 @@ def main():
         print("✅ Setup verified! You're ready to start learning.")
         print("\nNext steps:")
         print("  1. Run: jupyter lab")
-        print("  2. Open: journal/weeks/WEEK_01/W01_PCA_via_SVD.ipynb")
+        print("  2. Open: journal/weeks/WEEK_01/W01_day_by_day.ipynb")
         return 0
     else:
         print("❌ Setup incomplete. Please install missing dependencies:")

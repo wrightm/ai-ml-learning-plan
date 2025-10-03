@@ -6,7 +6,7 @@
 
 A ruthless, focused plan for a senior staff engineer (math/physics background, a bit rusty) to become **expert in Agentic AI** and **Recommendation Systems** in one year with ~**1 hour/day**.
 
-> **Cadence**: Mon–Fri → ~60m/day (theory, paper skim, coding, experiment, weekly deliverable). Use `journal/Week_XX.md` to log progress.
+> **Cadence**: Mon–Fri → ~60m/day (theory, paper skim, coding, experiment, weekly deliverable). Use `journal/weeks/WEEK_XX/` to log progress.
 
 ## Repo layout
 ```
@@ -59,7 +59,7 @@ jupyter lab
 make lab
 ```
 
-Your browser will open. Navigate to `journal/weeks/WEEK_01/W01_PCA_via_SVD.ipynb` to start!
+Your browser will open. Navigate to `journal/weeks/WEEK_01/W01_day_by_day.ipynb` to start!
 
 ### 3. Weekly Workflow
 - **Mark progress**: Check boxes below as you complete weeks (`- [ ]` → `- [x]`)
@@ -94,7 +94,7 @@ Your browser will open. Navigate to `journal/weeks/WEEK_01/W01_PCA_via_SVD.ipynb
 - [ ] **W2 — Probability & Stats I** → CLT simulation & sampling demos
 - [ ] **W3 — Probability & Stats II** → A/B test notebook + power analysis
 - [ ] **W4 — Optimization** → Logistic regression from scratch (GD)
-- [ ] **W5 — ML Project Template** → CI, tests, pre‑commit, W&B
+- [ ] **W5 — ML Experiment Tracking** → W&B setup, logging experiments, comparing runs
 - [ ] **W6 — Supervised I** → Linear/regularized models baseline
 - [ ] **W7 — Supervised II** → Trees/GBM comparison + SHAP
 - [ ] **W8 — Unsupervised** → Clustering + visualization
@@ -168,7 +168,7 @@ WEEK_XX/
 # Week 01 — Vectors & Matrices
 **Goals:** PCA via SVD; refresh linear algebra fundamentals  
 **What I Learned:** SVD decomposition, explained variance, whitening  
-**Code:** W01_PCA_via_SVD.ipynb  
+**Code:** W01_day_by_day.ipynb  
 **Key Insights:** PCA is just eigendecomposition of covariance...  
 **Next Week:** Probability & stats refresher
 ```

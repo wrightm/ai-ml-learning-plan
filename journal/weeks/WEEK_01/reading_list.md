@@ -13,7 +13,7 @@
 
 ## Day 3 — Implement PCA via SVD
 - Center → SVD (economy) → project → reconstruct
-- **Do:** Implement from scratch (use `pca_utils.py` pattern)
+- **Do:** Implement from scratch in notebook
 
 ## Day 4 — Evaluation & choosing k
 - Scree + cumulative explained variance
